@@ -3,6 +3,8 @@ package de.helmbold.tocfix
 import java.nio.file.Files
 import java.nio.file.Paths
 
+val startPattern = Regex("""<ul>\s*<li>\s*<ul>""", RegexOption.MULTILINE)
+val endPattern = Regex("""</ul>\s*</li>\s*</ul>""", RegexOption.MULTILINE)
 
 fun main(args: Array<String>) {
   if (args.size != 0) {
@@ -17,9 +19,7 @@ fun main(args: Array<String>) {
       .filter { path -> path.fileName.toString().endsWith(".html") }
       .forEach { path ->
         var content = path.toFile().readText()
-        val startPattern = Regex("""<ul>\s*<li>\s*<ul>""", RegexOption.MULTILINE)
         content = content.replace(startPattern, "<ul>")
-        val endPattern = Regex("""</ul>\s*</li>\s*</ul>""", RegexOption.MULTILINE)
         content = content.replace(endPattern, "</ul>")
         path.toFile().writeText(content)
       }
