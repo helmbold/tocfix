@@ -29,6 +29,6 @@ task bigJar(type: Jar) {
                 'Main-Class': 'de.helmbold.tocfix.AppKt'
     }
     baseName = project.name
-    from { configurations.compile.collect { it.isDirectory ? it : zipTree(it) } }
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
