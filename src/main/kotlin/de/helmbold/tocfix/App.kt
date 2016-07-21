@@ -13,8 +13,7 @@ fun main(args: Array<String>) {
            |Go to the root directory of your Hugo project and start this program with
            |`java -jar tocfix.jar""")
   }
-  val directory = Paths.get("""public""")
-  Files.walk(directory)
+  Files.walk(Paths.get("public"))
       .filter { path -> path.toFile().isFile }
       .filter { path -> path.fileName.toString().endsWith(".html") }
       .forEach { path ->
