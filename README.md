@@ -5,9 +5,14 @@ This small tool is a workaround for [bug](https://github.com/spf13/hugo/issues/1
 Usage
 -----
 
-Build the project with `gradle bigJar` and place the jar file from build/libs in a directory contained in your PATH, or put in a the base directory of your Hugo project.
+[Download tocfix.jar](http://helmbold.de/tocfix.jar) or build the project from source. You can build the project with `gradle bigJar`. The generated jar file will be in build/libs. Place the jar file in a directory contained in your PATH, or put it in a the base directory of your Hugo project.
 
 ```
 cd some/hugo/project
-java -jar tocfix-1.0.jar
+java -jar tocfix.jar
 ```
+
+Prerequisites
+-------------
+
+JDK 8 for building from source. To run it, JRE 8 is sufficient. You can [download the JDK or JRE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) from Oracle.
